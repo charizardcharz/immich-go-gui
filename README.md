@@ -85,6 +85,8 @@ I am aware that Windows Forms is bad and that the project structure and code is 
 
 Run ImmichGoGUI.exe
 
+When the Upload Type is set to Google Photos the program expects a takeout file in zip format as the "Upload".
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONFIGURATION  -->
