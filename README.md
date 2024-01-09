@@ -61,7 +61,7 @@
 
 This is a GUI for Immich Go hastily written in C# using Windows Forms as I was too lazy to retype the commands whenever I need to use it.
 
-I am aware that Windows Forms is bad and that the project structure and code is bad. I am too lazy to fix it. Create a pull request if it really bothers you.
+I am aware that Windows Forms is bad and that the project structure and code is bad. This is my first time using C# and I'm too lazy to fix it. Create a pull request if it really bothers you.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
