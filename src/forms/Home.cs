@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ImmichGoGui
 {
@@ -91,13 +92,9 @@ namespace ImmichGoGui
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
-
+            process.OutputDataReceived += (s, e) => AppendTextBoxOutput(e.Data);
             process.Start();
-            while (!process.StandardOutput.EndOfStream)
-            {
-                string output = process.StandardOutput.ReadLine();
-                textBoxOutput.AppendText(output + Environment.NewLine);
-            }
+            process.BeginOutputReadLine();
             process.WaitForExit();
         }
 
@@ -131,6 +128,16 @@ namespace ImmichGoGui
                 argument.Append("\\*");
             }
             return argument.ToString();
+        }
+
+        public void AppendTextBoxOutput(string value)
+        {
+            if (InvokeRequired)
+            {
+                this.Invoke(new Action<string>(AppendTextBoxOutput), new object[] { value });
+                return;
+            }
+            textBoxOutput.AppendText(value);
         }
     }
 }
