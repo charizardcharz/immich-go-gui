@@ -119,7 +119,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,4 +157,4 @@ Project Link: [https://github.com/charizardcharz/immich-go-gui](https://github.c
 [issues-shield]: https://img.shields.io/github/issues/charizardcharz/immich-go-gui.svg?style=for-the-badge
 [issues-url]: https://github.com/charizardcharz/immich-go-gui/issues
 [license-shield]: https://img.shields.io/github/license/charizardcharz/immich-go-gui.svg?style=for-the-badge
-[license-url]: https://github.com/charizardcharz/immich-go-gui/blob/master/LICENSE.txt
+[license-url]: https://github.com/charizardcharz/immich-go-gui/blob/master/LICENSE
