@@ -119,6 +119,12 @@ namespace ImmichGoGui
         {
            textBoxOutput.Text = string.Empty;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
+        }
     }
 }
 

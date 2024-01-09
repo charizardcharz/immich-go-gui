@@ -47,6 +47,7 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.buttonSaveInstanceSettings = new System.Windows.Forms.Button();
             this.buttonClearOutput = new System.Windows.Forms.Button();
+            this.buttonAbout = new System.Windows.Forms.Button();
             this.groupBoxInstance.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             // 
             this.buttonRun.Location = new System.Drawing.Point(440, 626);
             this.buttonRun.Name = "buttonRun";
-            this.buttonRun.Size = new System.Drawing.Size(75, 23);
+            this.buttonRun.Size = new System.Drawing.Size(75, 30);
             this.buttonRun.TabIndex = 0;
             this.buttonRun.Text = "Run";
             this.buttonRun.UseVisualStyleBackColor = true;
@@ -205,7 +206,7 @@
             // labelVersion
             // 
             this.labelVersion.AutoSize = true;
-            this.labelVersion.Location = new System.Drawing.Point(15, 629);
+            this.labelVersion.Location = new System.Drawing.Point(15, 633);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(71, 16);
             this.labelVersion.TabIndex = 13;
@@ -215,7 +216,7 @@
             // 
             this.buttonSaveInstanceSettings.Location = new System.Drawing.Point(236, 626);
             this.buttonSaveInstanceSettings.Name = "buttonSaveInstanceSettings";
-            this.buttonSaveInstanceSettings.Size = new System.Drawing.Size(198, 23);
+            this.buttonSaveInstanceSettings.Size = new System.Drawing.Size(198, 30);
             this.buttonSaveInstanceSettings.TabIndex = 14;
             this.buttonSaveInstanceSettings.Text = "Save Instance Settings";
             this.buttonSaveInstanceSettings.UseVisualStyleBackColor = true;
@@ -225,17 +226,28 @@
             // 
             this.buttonClearOutput.Location = new System.Drawing.Point(114, 626);
             this.buttonClearOutput.Name = "buttonClearOutput";
-            this.buttonClearOutput.Size = new System.Drawing.Size(116, 23);
+            this.buttonClearOutput.Size = new System.Drawing.Size(116, 30);
             this.buttonClearOutput.TabIndex = 15;
             this.buttonClearOutput.Text = "Clear Output";
             this.buttonClearOutput.UseVisualStyleBackColor = true;
             this.buttonClearOutput.Click += new System.EventHandler(this.buttonClearOutput_Click);
+            // 
+            // buttonAbout
+            // 
+            this.buttonAbout.Location = new System.Drawing.Point(440, 12);
+            this.buttonAbout.Name = "buttonAbout";
+            this.buttonAbout.Size = new System.Drawing.Size(75, 30);
+            this.buttonAbout.TabIndex = 16;
+            this.buttonAbout.Text = "About";
+            this.buttonAbout.UseVisualStyleBackColor = true;
+            this.buttonAbout.Click += new System.EventHandler(this.button1_Click);
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 661);
+            this.Controls.Add(this.buttonAbout);
             this.Controls.Add(this.buttonClearOutput);
             this.Controls.Add(this.buttonSaveInstanceSettings);
             this.Controls.Add(this.labelVersion);
@@ -251,6 +263,8 @@
             this.Controls.Add(this.comboBoxUploadType);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.buttonRun);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Home";
             this.Text = "Immich Go GUI";
             this.Load += new System.EventHandler(this.Home_Load);
@@ -282,6 +296,7 @@
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Button buttonSaveInstanceSettings;
         private System.Windows.Forms.Button buttonClearOutput;
+        private System.Windows.Forms.Button buttonAbout;
     }
 }
 
