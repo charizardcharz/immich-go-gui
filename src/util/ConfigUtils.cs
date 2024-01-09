@@ -2,15 +2,15 @@
 using System.IO;
 using System.Text.Json;
 
-namespace ImmichGoGui
+namespace ImmichGoGui.util
 {
     internal class ConfigUtils
     {
         private const string CONFIG_FILE_PATH = "config.json";
 
-        public static AppConfig getConfig()
+        public static AppConfig GetConfig()
         {
-            AppConfig config = null;
+            AppConfig config;
             try
             {
                 string jsonString = File.ReadAllText(CONFIG_FILE_PATH);
@@ -18,34 +18,22 @@ namespace ImmichGoGui
 
                 if (String.IsNullOrEmpty(jsonString))
                 {
-                    config = initConfig();
+                    config = InitConfig();
                 }
                 else
                 {
                     config = JsonSerializer.Deserialize<AppConfig>(jsonString);
                 }
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
-                config = initConfig();
+                config = InitConfig();
             }
 
             return config;
         }
 
-        static AppConfig initConfig()
-        {
-            Console.WriteLine("Initializing Config File");
-            AppConfig config = new AppConfig();
-            config.immichURL = "http://localhost:2283";
-            config.APIKey = "";
-
-            saveConfig(config);
-
-            return config;
-        }
-
-        public static void saveConfig(AppConfig config)
+        public static void SaveConfig(AppConfig config)
         {
             string jsonString = JsonSerializer.Serialize(config);
 
@@ -53,7 +41,19 @@ namespace ImmichGoGui
             {
                 outputFile.WriteAsync(jsonString);
             }
-
         }
+
+        private static AppConfig InitConfig()
+        {
+            Console.WriteLine("Initializing Config File");
+            AppConfig config = new AppConfig();
+            config.ImmichURL = "http://localhost:2283";
+            config.APIKey = "";
+
+            SaveConfig(config);
+
+            return config;
+        }
+
     }
 }

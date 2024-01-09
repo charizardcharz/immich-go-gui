@@ -59,7 +59,7 @@
             this.buttonRun.TabIndex = 0;
             this.buttonRun.Text = "Run";
             this.buttonRun.UseVisualStyleBackColor = true;
-            this.buttonRun.Click += new System.EventHandler(this.buttonRun_Click);
+            this.buttonRun.Click += new System.EventHandler(this.ButtonRun_Click);
             // 
             // labelTitle
             // 
@@ -163,7 +163,7 @@
             this.buttonUploadPathBrowse.TabIndex = 8;
             this.buttonUploadPathBrowse.Text = "Browse";
             this.buttonUploadPathBrowse.UseVisualStyleBackColor = true;
-            this.buttonUploadPathBrowse.Click += new System.EventHandler(this.buttonUploadPathBrowse_Click);
+            this.buttonUploadPathBrowse.Click += new System.EventHandler(this.ButtonUploadPathBrowse_Click);
             // 
             // labelAlbumName
             // 
@@ -220,7 +220,7 @@
             this.buttonSaveInstanceSettings.TabIndex = 14;
             this.buttonSaveInstanceSettings.Text = "Save Instance Settings";
             this.buttonSaveInstanceSettings.UseVisualStyleBackColor = true;
-            this.buttonSaveInstanceSettings.Click += new System.EventHandler(this.buttonSaveInstanceSettings_Click);
+            this.buttonSaveInstanceSettings.Click += new System.EventHandler(this.ButtonSaveInstanceSettings_Click);
             // 
             // buttonClearOutput
             // 
@@ -230,7 +230,7 @@
             this.buttonClearOutput.TabIndex = 15;
             this.buttonClearOutput.Text = "Clear Output";
             this.buttonClearOutput.UseVisualStyleBackColor = true;
-            this.buttonClearOutput.Click += new System.EventHandler(this.buttonClearOutput_Click);
+            this.buttonClearOutput.Click += new System.EventHandler(this.ButtonClearOutput_Click);
             // 
             // buttonAbout
             // 
@@ -240,7 +240,7 @@
             this.buttonAbout.TabIndex = 16;
             this.buttonAbout.Text = "About";
             this.buttonAbout.UseVisualStyleBackColor = true;
-            this.buttonAbout.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAbout.Click += new System.EventHandler(this.ButtonAbout_Click);
             // 
             // Home
             // 

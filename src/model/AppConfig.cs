@@ -2,7 +2,7 @@
 {
     internal class AppConfig
     {
-        public string immichURL { get; set; }
+        public string ImmichURL { get; set; }
         public string APIKey { get; set; }
 
 
@@ -11,7 +11,7 @@
 
         public AppConfig(string immichURL, string aPIKey)
         {
-            this.immichURL = immichURL;
+            this.ImmichURL = immichURL;
             this.APIKey = aPIKey;
         }
 

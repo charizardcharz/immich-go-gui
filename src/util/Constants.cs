@@ -1,4 +1,4 @@
-﻿namespace ImmichGoGui
+﻿namespace ImmichGoGui.util
 {
     public class Constants
     {

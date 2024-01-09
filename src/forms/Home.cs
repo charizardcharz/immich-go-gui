@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImmichGoGui.util;
+using System;
 using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
@@ -7,11 +8,16 @@ namespace ImmichGoGui
 {
     public partial class Home : Form
     {
+        private const string FILE = "File";
+        private const string FOLDER = "Folder";
+        private const string GOOGLE_PHOTOS = "Google Photos";
+
         private AppConfig config;
+
         public Home()
         {
             InitializeComponent();
-            config = ConfigUtils.getConfig();
+            config = ConfigUtils.GetConfig();
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -20,52 +26,68 @@ namespace ImmichGoGui
             labelVersion.Text = "Version " + Constants.VERSION;
             comboBoxUploadType.Text = "File";
 
-            textBoxURL.Text = config.immichURL;
+            textBoxURL.Text = config.ImmichURL;
             textBoxAPIKey.Text = config.APIKey;
         }
 
-        private void buttonUploadPathBrowse_Click(object sender, EventArgs e)
+        private void ButtonUploadPathBrowse_Click(object sender, EventArgs e)
         {
-            if (comboBoxUploadType.Text.Equals("File") || comboBoxUploadType.Text.Equals("Google Photos"))
+            if (comboBoxUploadType.Text.Equals(FILE) || comboBoxUploadType.Text.Equals(GOOGLE_PHOTOS))
             {
                 OpenFileDialog dialog = new OpenFileDialog();
-                dialog.ShowDialog(); // Show the dialog.
+                dialog.ShowDialog(); //
                 textBoxUploadPath.Text = dialog.FileName;
 
             }
-            else if (comboBoxUploadType.Text.Equals("Folder"))
+            else if (comboBoxUploadType.Text.Equals(FOLDER))
             {
                 FolderBrowserDialog dialog = new FolderBrowserDialog();
-                dialog.ShowDialog(); // Show the dialog.
+                dialog.ShowDialog();
                 textBoxUploadPath.Text = dialog.SelectedPath;
             }
 
         }
 
-        private void buttonRun_Click(object sender, EventArgs e)
+        private void ButtonSaveInstanceSettings_Click(object sender, EventArgs e)
+        {
+            this.config = new AppConfig(textBoxURL.Text, textBoxAPIKey.Text);
+            ConfigUtils.SaveConfig(config);
+        }
+
+        private void ButtonClearOutput_Click(object sender, EventArgs e)
+        {
+            textBoxOutput.Text = string.Empty;
+        }
+
+        private void ButtonRun_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBoxURL.Text) ||
                 String.IsNullOrEmpty(textBoxAPIKey.Text) ||
                 String.IsNullOrEmpty(textBoxUploadPath.Text))
-            { }
+            {
+                MessageBox.Show("A required field is empty");
+            }
             else
             {
-                startImmichGo();
+                StartImmichGo();
             }
         }
 
-        private void startImmichGo()
+        private void ButtonAbout_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
+        }
+
+        private void StartImmichGo()
         {
             Process process = new Process();
+            process.StartInfo.FileName = "immich-go";
             if (Environment.OSVersion.Platform.Equals(PlatformID.Win32NT))
             {
-                process.StartInfo.FileName = "immich-go.exe";
+                process.StartInfo.FileName += ".exe";
             }
-            else
-            {
-                process.StartInfo.FileName = "immich-go";
-            }
-            process.StartInfo.Arguments = createArgument();
+            process.StartInfo.Arguments = CreateArguments();
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = true;
@@ -79,7 +101,7 @@ namespace ImmichGoGui
             process.WaitForExit();
         }
 
-        private string createArgument()
+        private string CreateArguments()
         {
             StringBuilder argument = new StringBuilder();
             argument.Append("-server=" + textBoxURL.Text);
@@ -97,35 +119,18 @@ namespace ImmichGoGui
                 argument.Append(" -album=\"" + textBoxAlbumName.Text + "\"");
             }
 
-            if (comboBoxUploadType.Text.Equals("Google Photos"))
+            if (comboBoxUploadType.Text.Equals(GOOGLE_PHOTOS))
             {
                 argument.Append(" -create-albums -google-photos");
             }
 
             argument.Append(" " + textBoxUploadPath.Text);
 
-            if (comboBoxUploadType.Text.Equals("Folder"))
+            if (comboBoxUploadType.Text.Equals(FOLDER))
             {
-                argument.Append("*");
+                argument.Append("\\*");
             }
             return argument.ToString();
-        }
-
-        private void buttonSaveInstanceSettings_Click(object sender, EventArgs e)
-        {
-            this.config = new AppConfig(textBoxURL.Text, textBoxAPIKey.Text);
-            ConfigUtils.saveConfig(config);
-        }
-
-        private void buttonClearOutput_Click(object sender, EventArgs e)
-        {
-            textBoxOutput.Text = string.Empty;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            About about = new About();
-            about.ShowDialog();
         }
     }
 }
