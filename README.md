@@ -157,4 +157,4 @@ Project Link: [https://github.com/charizardcharz/immich-go-gui](https://github.c
 [issues-shield]: https://img.shields.io/github/issues/charizardcharz/immich-go-gui.svg?style=for-the-badge
 [issues-url]: https://github.com/charizardcharz/immich-go-gui/issues
 [license-shield]: https://img.shields.io/github/license/charizardcharz/immich-go-gui.svg?style=for-the-badge
-[license-url]: https://github.com/charizardcharz/immich-go-gui/blob/master/LICENSE
+[license-url]: https://github.com/charizardcharz/immich-go-gui/blob/main/LICENSE
