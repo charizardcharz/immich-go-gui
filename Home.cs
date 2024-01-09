@@ -101,6 +101,11 @@ namespace ImmichGoGui
                 argument.Append(" -album=\"" + textBoxAlbumName.Text + "\"");
             }
 
+            if (comboBoxUploadType.Text.Equals("Google Photos"))
+            {
+                argument.Append(" -create-albums -google-photos");
+            }
+
             argument.Append(" " + textBoxUploadPath.Text);
 
             if (comboBoxUploadType.Text.Equals("Folder"))
