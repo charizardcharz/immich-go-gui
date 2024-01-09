@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace ImmichGoGui
 {
@@ -34,17 +26,20 @@ namespace ImmichGoGui
 
         private void buttonUploadPathBrowse_Click(object sender, EventArgs e)
         {
-            if (comboBoxUploadType.Text.Equals("File") || comboBoxUploadType.Text.Equals("Google Photos")) {
+            if (comboBoxUploadType.Text.Equals("File") || comboBoxUploadType.Text.Equals("Google Photos"))
+            {
                 OpenFileDialog dialog = new OpenFileDialog();
                 dialog.ShowDialog(); // Show the dialog.
                 textBoxUploadPath.Text = dialog.FileName;
 
-            } else if (comboBoxUploadType.Text.Equals("Folder")){
+            }
+            else if (comboBoxUploadType.Text.Equals("Folder"))
+            {
                 FolderBrowserDialog dialog = new FolderBrowserDialog();
                 dialog.ShowDialog(); // Show the dialog.
                 textBoxUploadPath.Text = dialog.SelectedPath;
             }
-            
+
         }
 
         private void buttonRun_Click(object sender, EventArgs e)
@@ -52,7 +47,7 @@ namespace ImmichGoGui
             if (String.IsNullOrEmpty(textBoxURL.Text) ||
                 String.IsNullOrEmpty(textBoxAPIKey.Text) ||
                 String.IsNullOrEmpty(textBoxUploadPath.Text))
-            {  }
+            { }
             else
             {
                 startImmichGo();
@@ -65,7 +60,8 @@ namespace ImmichGoGui
             if (Environment.OSVersion.Platform.Equals(PlatformID.Win32NT))
             {
                 process.StartInfo.FileName = "immich-go.exe";
-            } else
+            }
+            else
             {
                 process.StartInfo.FileName = "immich-go";
             }
@@ -95,7 +91,7 @@ namespace ImmichGoGui
             }
 
             argument.Append(" upload");
-            
+
             if (!String.IsNullOrEmpty(textBoxAlbumName.Text))
             {
                 argument.Append(" -album=\"" + textBoxAlbumName.Text + "\"");
@@ -117,12 +113,13 @@ namespace ImmichGoGui
 
         private void buttonSaveInstanceSettings_Click(object sender, EventArgs e)
         {
-            ConfigUtils.saveConfig(new AppConfig(textBoxURL.Text, textBoxAPIKey.Text));
+            this.config = new AppConfig(textBoxURL.Text, textBoxAPIKey.Text);
+            ConfigUtils.saveConfig(config);
         }
 
         private void buttonClearOutput_Click(object sender, EventArgs e)
         {
-           textBoxOutput.Text = string.Empty;
+            textBoxOutput.Text = string.Empty;
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -1,13 +1,8 @@
-﻿using System;
-using System.IO;
-using System.Text.Json;
-using static System.Windows.Forms.LinkLabel;
-
-namespace ImmichGoGui
+﻿namespace ImmichGoGui
 {
     internal class AppConfig
     {
-        public string immichURL {  get; set; }
+        public string immichURL { get; set; }
         public string APIKey { get; set; }
 
 
@@ -20,6 +15,6 @@ namespace ImmichGoGui
             this.APIKey = aPIKey;
         }
 
-        
+
     }
 }
