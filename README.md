@@ -96,6 +96,19 @@ This file contains the Instance URL and API key
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- BUILDING -->
+## Build Dependencies
+
+Install the [System.Text.Json NuGet package](https://www.nuget.org/packages/System.Text.Json) and [Costura.Fody NuGet package](https://nuget.org/packages/Costura.Fody/) and update the [Fody NuGet package](https://nuget.org/packages/Fody/):
+
+```powershell
+PM> Install-Package System.Text.Json
+PM> Install-Package Fody
+PM> Install-Package Costura.Fody
+``` 
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- CONTRIBUTING -->
