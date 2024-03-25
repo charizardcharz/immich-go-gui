@@ -49,6 +49,7 @@ namespace ImmichGoGui.util
             AppConfig config = new AppConfig();
             config.ImmichURL = "http://localhost:2283";
             config.APIKey = "";
+            config.SkipSSLVerification = false;
 
             SaveConfig(config);
 

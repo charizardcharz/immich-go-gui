@@ -29,6 +29,7 @@ namespace ImmichGoGui
 
             textBoxURL.Text = config.ImmichURL;
             textBoxAPIKey.Text = config.APIKey;
+            comboBoxSkipSSLVerification.Checked = config.SkipSSLVerification;
         }
 
         private void ButtonUploadPathBrowse_Click(object sender, EventArgs e)
@@ -104,7 +105,7 @@ namespace ImmichGoGui
             argument.Append("-server=" + textBoxURL.Text);
             argument.Append(" -key=" + textBoxAPIKey.Text);
 
-            if (textBoxURL.Text.ToLower().StartsWith("https"))
+            if (textBoxURL.Text.ToLower().StartsWith("https") && comboBoxSkipSSLVerification.Checked)
             {
                 argument.Append(" -skip-verify-ssl=true");
             }
