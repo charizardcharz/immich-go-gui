@@ -1,11 +1,12 @@
-﻿namespace ImmichGoGui
+﻿using System;
+
+namespace ImmichGoGui
 {
     internal class AppConfig
     {
         public string ImmichURL { get; set; }
         public string APIKey { get; set; }
-
-
+        public bool SkipSSLVerification { get; set; }
 
         public AppConfig() { }
 

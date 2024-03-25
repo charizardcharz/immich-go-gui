@@ -33,6 +33,7 @@
             this.comboBoxUploadType = new System.Windows.Forms.ComboBox();
             this.labelUploadType = new System.Windows.Forms.Label();
             this.groupBoxInstance = new System.Windows.Forms.GroupBox();
+            this.comboBoxSkipSSLVerification = new System.Windows.Forms.CheckBox();
             this.textBoxAPIKey = new System.Windows.Forms.TextBox();
             this.labelAPIKey = new System.Windows.Forms.Label();
             this.textBoxURL = new System.Windows.Forms.TextBox();
@@ -53,10 +54,10 @@
             // 
             // buttonRun
             // 
-            this.buttonRun.Location = new System.Drawing.Point(440, 626);
+            this.buttonRun.Location = new System.Drawing.Point(440, 642);
             this.buttonRun.Name = "buttonRun";
             this.buttonRun.Size = new System.Drawing.Size(75, 30);
-            this.buttonRun.TabIndex = 0;
+            this.buttonRun.TabIndex = 10;
             this.buttonRun.Text = "Run";
             this.buttonRun.UseVisualStyleBackColor = true;
             this.buttonRun.Click += new System.EventHandler(this.ButtonRun_Click);
@@ -79,7 +80,7 @@
             "File",
             "Folder",
             "Google Photos"});
-            this.comboBoxUploadType.Location = new System.Drawing.Point(114, 142);
+            this.comboBoxUploadType.Location = new System.Drawing.Point(114, 158);
             this.comboBoxUploadType.Name = "comboBoxUploadType";
             this.comboBoxUploadType.Size = new System.Drawing.Size(128, 24);
             this.comboBoxUploadType.TabIndex = 3;
@@ -87,7 +88,7 @@
             // labelUploadType
             // 
             this.labelUploadType.AutoSize = true;
-            this.labelUploadType.Location = new System.Drawing.Point(21, 145);
+            this.labelUploadType.Location = new System.Drawing.Point(21, 161);
             this.labelUploadType.Name = "labelUploadType";
             this.labelUploadType.Size = new System.Drawing.Size(87, 16);
             this.labelUploadType.TabIndex = 4;
@@ -95,23 +96,34 @@
             // 
             // groupBoxInstance
             // 
+            this.groupBoxInstance.Controls.Add(this.comboBoxSkipSSLVerification);
             this.groupBoxInstance.Controls.Add(this.textBoxAPIKey);
             this.groupBoxInstance.Controls.Add(this.labelAPIKey);
             this.groupBoxInstance.Controls.Add(this.textBoxURL);
             this.groupBoxInstance.Controls.Add(this.labelURL);
             this.groupBoxInstance.Location = new System.Drawing.Point(18, 48);
             this.groupBoxInstance.Name = "groupBoxInstance";
-            this.groupBoxInstance.Size = new System.Drawing.Size(497, 81);
+            this.groupBoxInstance.Size = new System.Drawing.Size(497, 104);
             this.groupBoxInstance.TabIndex = 5;
             this.groupBoxInstance.TabStop = false;
             this.groupBoxInstance.Text = "Instance Settings";
+            // 
+            // comboBoxSkipSSLVerification
+            // 
+            this.comboBoxSkipSSLVerification.AutoSize = true;
+            this.comboBoxSkipSSLVerification.Location = new System.Drawing.Point(9, 75);
+            this.comboBoxSkipSSLVerification.Name = "comboBoxSkipSSLVerification";
+            this.comboBoxSkipSSLVerification.Size = new System.Drawing.Size(153, 20);
+            this.comboBoxSkipSSLVerification.TabIndex = 2;
+            this.comboBoxSkipSSLVerification.Text = "Skip SSL Verification";
+            this.comboBoxSkipSSLVerification.UseVisualStyleBackColor = true;
             // 
             // textBoxAPIKey
             // 
             this.textBoxAPIKey.Location = new System.Drawing.Point(66, 47);
             this.textBoxAPIKey.Name = "textBoxAPIKey";
             this.textBoxAPIKey.Size = new System.Drawing.Size(420, 22);
-            this.textBoxAPIKey.TabIndex = 2;
+            this.textBoxAPIKey.TabIndex = 1;
             this.textBoxAPIKey.UseSystemPasswordChar = true;
             // 
             // labelAPIKey
@@ -128,7 +140,7 @@
             this.textBoxURL.Location = new System.Drawing.Point(66, 19);
             this.textBoxURL.Name = "textBoxURL";
             this.textBoxURL.Size = new System.Drawing.Size(420, 22);
-            this.textBoxURL.TabIndex = 1;
+            this.textBoxURL.TabIndex = 0;
             // 
             // labelURL
             // 
@@ -142,7 +154,7 @@
             // labelUpload
             // 
             this.labelUpload.AutoSize = true;
-            this.labelUpload.Location = new System.Drawing.Point(56, 175);
+            this.labelUpload.Location = new System.Drawing.Point(56, 191);
             this.labelUpload.Name = "labelUpload";
             this.labelUpload.Size = new System.Drawing.Size(52, 16);
             this.labelUpload.TabIndex = 6;
@@ -150,17 +162,17 @@
             // 
             // textBoxUploadPath
             // 
-            this.textBoxUploadPath.Location = new System.Drawing.Point(114, 172);
+            this.textBoxUploadPath.Location = new System.Drawing.Point(114, 188);
             this.textBoxUploadPath.Name = "textBoxUploadPath";
             this.textBoxUploadPath.Size = new System.Drawing.Size(320, 22);
-            this.textBoxUploadPath.TabIndex = 7;
+            this.textBoxUploadPath.TabIndex = 4;
             // 
             // buttonUploadPathBrowse
             // 
-            this.buttonUploadPathBrowse.Location = new System.Drawing.Point(440, 172);
+            this.buttonUploadPathBrowse.Location = new System.Drawing.Point(440, 188);
             this.buttonUploadPathBrowse.Name = "buttonUploadPathBrowse";
             this.buttonUploadPathBrowse.Size = new System.Drawing.Size(75, 23);
-            this.buttonUploadPathBrowse.TabIndex = 8;
+            this.buttonUploadPathBrowse.TabIndex = 5;
             this.buttonUploadPathBrowse.Text = "Browse";
             this.buttonUploadPathBrowse.UseVisualStyleBackColor = true;
             this.buttonUploadPathBrowse.Click += new System.EventHandler(this.ButtonUploadPathBrowse_Click);
@@ -168,7 +180,7 @@
             // labelAlbumName
             // 
             this.labelAlbumName.AutoSize = true;
-            this.labelAlbumName.Location = new System.Drawing.Point(23, 203);
+            this.labelAlbumName.Location = new System.Drawing.Point(23, 219);
             this.labelAlbumName.Name = "labelAlbumName";
             this.labelAlbumName.Size = new System.Drawing.Size(85, 16);
             this.labelAlbumName.TabIndex = 9;
@@ -176,15 +188,15 @@
             // 
             // textBoxAlbumName
             // 
-            this.textBoxAlbumName.Location = new System.Drawing.Point(114, 200);
+            this.textBoxAlbumName.Location = new System.Drawing.Point(114, 216);
             this.textBoxAlbumName.Name = "textBoxAlbumName";
             this.textBoxAlbumName.Size = new System.Drawing.Size(401, 22);
-            this.textBoxAlbumName.TabIndex = 10;
+            this.textBoxAlbumName.TabIndex = 6;
             // 
             // labelOutput
             // 
             this.labelOutput.AutoSize = true;
-            this.labelOutput.Location = new System.Drawing.Point(15, 236);
+            this.labelOutput.Location = new System.Drawing.Point(15, 252);
             this.labelOutput.Name = "labelOutput";
             this.labelOutput.Size = new System.Drawing.Size(45, 16);
             this.labelOutput.TabIndex = 11;
@@ -194,19 +206,19 @@
             // 
             this.textBoxOutput.AcceptsReturn = true;
             this.textBoxOutput.AcceptsTab = true;
-            this.textBoxOutput.Location = new System.Drawing.Point(18, 255);
+            this.textBoxOutput.Location = new System.Drawing.Point(18, 271);
             this.textBoxOutput.MaxLength = 65536;
             this.textBoxOutput.Multiline = true;
             this.textBoxOutput.Name = "textBoxOutput";
             this.textBoxOutput.ReadOnly = true;
             this.textBoxOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxOutput.Size = new System.Drawing.Size(497, 365);
-            this.textBoxOutput.TabIndex = 12;
+            this.textBoxOutput.TabIndex = 7;
             // 
             // labelVersion
             // 
             this.labelVersion.AutoSize = true;
-            this.labelVersion.Location = new System.Drawing.Point(15, 633);
+            this.labelVersion.Location = new System.Drawing.Point(15, 649);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(71, 16);
             this.labelVersion.TabIndex = 13;
@@ -214,20 +226,20 @@
             // 
             // buttonSaveInstanceSettings
             // 
-            this.buttonSaveInstanceSettings.Location = new System.Drawing.Point(236, 626);
+            this.buttonSaveInstanceSettings.Location = new System.Drawing.Point(236, 642);
             this.buttonSaveInstanceSettings.Name = "buttonSaveInstanceSettings";
             this.buttonSaveInstanceSettings.Size = new System.Drawing.Size(198, 30);
-            this.buttonSaveInstanceSettings.TabIndex = 14;
+            this.buttonSaveInstanceSettings.TabIndex = 9;
             this.buttonSaveInstanceSettings.Text = "Save Instance Settings";
             this.buttonSaveInstanceSettings.UseVisualStyleBackColor = true;
             this.buttonSaveInstanceSettings.Click += new System.EventHandler(this.ButtonSaveInstanceSettings_Click);
             // 
             // buttonClearOutput
             // 
-            this.buttonClearOutput.Location = new System.Drawing.Point(114, 626);
+            this.buttonClearOutput.Location = new System.Drawing.Point(114, 642);
             this.buttonClearOutput.Name = "buttonClearOutput";
             this.buttonClearOutput.Size = new System.Drawing.Size(116, 30);
-            this.buttonClearOutput.TabIndex = 15;
+            this.buttonClearOutput.TabIndex = 8;
             this.buttonClearOutput.Text = "Clear Output";
             this.buttonClearOutput.UseVisualStyleBackColor = true;
             this.buttonClearOutput.Click += new System.EventHandler(this.ButtonClearOutput_Click);
@@ -237,7 +249,7 @@
             this.buttonAbout.Location = new System.Drawing.Point(440, 12);
             this.buttonAbout.Name = "buttonAbout";
             this.buttonAbout.Size = new System.Drawing.Size(75, 30);
-            this.buttonAbout.TabIndex = 16;
+            this.buttonAbout.TabIndex = 11;
             this.buttonAbout.Text = "About";
             this.buttonAbout.UseVisualStyleBackColor = true;
             this.buttonAbout.Click += new System.EventHandler(this.ButtonAbout_Click);
@@ -246,7 +258,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 661);
+            this.ClientSize = new System.Drawing.Size(532, 681);
             this.Controls.Add(this.buttonAbout);
             this.Controls.Add(this.buttonClearOutput);
             this.Controls.Add(this.buttonSaveInstanceSettings);
@@ -297,6 +309,7 @@
         private System.Windows.Forms.Button buttonSaveInstanceSettings;
         private System.Windows.Forms.Button buttonClearOutput;
         private System.Windows.Forms.Button buttonAbout;
+        private System.Windows.Forms.CheckBox comboBoxSkipSSLVerification;
     }
 }
 
